@@ -157,8 +157,8 @@
 				</view>
 				<view class="uni-list-cell-db">
 					<input class="input-text-2" placeholder="请输入零头重量" type="number" v-model="lrNumber" />
-					<image v-if="lrImg" @tap="onChooseImg('lrImg')" :src="lrImg" mode=""></image>
-					<view v-else @tap="onChooseImg('lrImg')" class="uni-camera">拍照</view>
+					<!-- <image v-if="lrImg" @tap="onChooseImg('lrImg')" :src="lrImg" mode=""></image>
+					<view v-else @tap="onChooseImg('lrImg')" class="uni-camera">拍照</view> -->
 				</view>
 			</view>
 		</view>
@@ -283,13 +283,13 @@
 					return;
 				}
 				
-				if(this.lrNumber>0 && !this.lrImg  ){
-					uni.showToast({
-						icon:"none",
-						title: "录入重量不为0需要拍照"
-					});
-					return;
-				}
+				// if(this.lrNumber>0 && !this.lrImg  ){
+				// 	uni.showToast({
+				// 		icon:"none",
+				// 		title: "录入重量不为0需要拍照"
+				// 	});
+				// 	return;
+				// }
 				
 				if (this.index && this.i && this.k && this.j) {
 					this.onReadyQRcode();
@@ -339,7 +339,6 @@
 					"生产计划号": this.scPlanData[this.index-1].scPlanNo,
 					"生产批次号": this.scPlanData[this.index-1].scBatchNo,
 					"产品名称": this.scPlanData[this.index-1].cpName,
-					"生产日期": this.startTimeStr,
 					"锅次号": this.scBbatchList[this.i-1].scBatchF,
 					"产线名称": this.scPlanData[this.index-1].cxNo,
 					"物料名称": this.MaterialList[this.k-1].materialName,
@@ -605,6 +604,7 @@
 					this.unit="";
 					this.countNumber="";
 					this.oddNumber="";
+					this.lrNumber="";
 					this.countImg="";
 					this.oddImg="";
 				}
